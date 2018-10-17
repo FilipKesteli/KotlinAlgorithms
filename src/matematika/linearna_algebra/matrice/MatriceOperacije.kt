@@ -78,6 +78,10 @@ fun umnozakMatricaKlasa(m1: Matrica, m2: Matrica): Matrica {
     }
 }
 
+/**
+ * Double transponiranje
+ * Nema pamcenja promjena u elementima - vrlo bitno!!
+ */
 fun transponiranjeMatrice(A: MutableList<MutableList<Double>>): MutableList<MutableList<Double>> {
     var b: MutableList<MutableList<Double>> = mutableListOf()
     for (j in 0 until A[0].size) {

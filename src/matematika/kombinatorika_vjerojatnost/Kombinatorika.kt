@@ -67,8 +67,37 @@ fun faktorijela(n: Int): Int {
     return fact2tail(n, 1)
 }
 
-fun povrh(n: Int, m: Int): Int {
-    return mTeroNfaktorijela(n, 1) / (mTeroNfaktorijela(n - m, 1) * mTeroNfaktorijela(m, 1))
+fun povrh(n: Int, k: Int): Int {
+    return mTeroNfaktorijela(n, 1) / (mTeroNfaktorijela(n - k, 1) * mTeroNfaktorijela(k, 1))
+}
+
+fun povrh2(n: Int, k: Int): Int {
+    return faktorijela(n) / (faktorijela(n - k) * faktorijela(k))
+}
+
+/**
+ * exception division by zero se stalno pojavljuje!...
+ * moram staviti Long
+ */
+fun povrh3(n: Int, k: Int): Long {
+    var a: Long = 1
+    if (k < n - k) {
+        for (i in n downTo n - k + 1) {
+            a *= i
+        }
+        for (i in k downTo 1) {
+            a /= i
+        }
+        return a
+    } else {
+        for (i in n downTo k + 1) {
+            a *= i
+        }
+        for (i in n - k downTo 1) {
+            a /= i
+        }
+        return a
+    }
 }
 
 fun brojPermutacijaBezPonavljanja(n: Int): Int {
